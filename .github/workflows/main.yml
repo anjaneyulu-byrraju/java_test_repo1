@@ -24,13 +24,12 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
     - name: Build with Maven
       run: |
-            cd src
             mvn clean package
 
     - uses: actions/upload-artifact@v4
       with:
         name: verademo.war
-        path: src/target/verademo.war
+        path: target/verademo.war
         
   pipeline_scan:
       needs: build
@@ -79,11 +78,12 @@ jobs:
           inputFile: results.json
           vid: ${{ secrets.VID }}
           vkey: ${{ secrets.VKEY }}
-          source_base_path_1: "hello/:src/main/java/hello/"
+          source_base_path_1: "hello/:src/main/java/com/hello/"
           language: java
           prComment: true
+          cwe: '89'
           DEBUG: true
           fixType: batch
-          files: all
+          files: changed
           createPR: true
           
