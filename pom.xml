@@ -25,6 +25,13 @@
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
+        
+        <!-- OWASP Java Encoder Dependency -->
+        <dependency>
+            <groupId>org.owasp.encoder</groupId>
+            <artifactId>encoder</artifactId>
+            <version>1.2.3</version>
+        </dependency>
     </dependencies>
 
     <build>
