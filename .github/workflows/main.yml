@@ -78,12 +78,10 @@ jobs:
           inputFile: results.json
           vid: ${{ secrets.VID }}
           vkey: ${{ secrets.VKEY }}
-          source_base_path_1: "hello/:src/main/java/com/hello/"
           language: java
           prComment: true
-          cwe: '89'
           DEBUG: true
           fixType: batch
-          files: changed
+          files: all
           createPR: true
           
