@@ -1,5 +1,4 @@
 name: verademo
-
 on:
    push:
     branches:
@@ -7,7 +6,6 @@ on:
    pull_request:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +23,6 @@ jobs:
     - name: Build with Maven
       run: |
             mvn clean package
-
     - uses: actions/upload-artifact@v4
       with:
         name: jb-hello-world-maven.war
@@ -38,7 +35,6 @@ jobs:
       steps:
         - name: checkout repo
           uses: actions/checkout@v3
-
         - name: get archive
           uses: actions/download-artifact@v4
           with:
@@ -57,7 +53,6 @@ jobs:
           with:
             name: Veracode Pipeline-Scan Results
             path: results.json 
-
   veracode-fix:
     runs-on: ubuntu-latest
     needs: pipeline_scan
@@ -65,7 +60,6 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
-
       - name: get flaw file
         uses: actions/download-artifact@v4
         with:
@@ -78,12 +72,10 @@ jobs:
           inputFile: results.json
           vid: ${{ secrets.VID }}
           vkey: ${{ secrets.VKEY }}
-          source_base_path_1: "hello/:src/main/java/com/hello/"
+          source_base_path_1: "hello/:src/main/java/hello/"
           language: java
           prComment: true
-          cwe: '89'
           DEBUG: true
           fixType: batch
-          files: changed
+          files: all
           createPR: true
-          
