@@ -1,5 +1,3 @@
-VulnerableXSSServlet.java
-
 package hello;
 
 import java.io.IOException;
