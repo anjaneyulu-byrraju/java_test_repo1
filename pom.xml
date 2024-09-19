@@ -5,7 +5,7 @@
 
     <groupId>org.springframework</groupId>
     <artifactId>jb-hello-world-maven</artifactId>
-    <packaging>war</packaging> <!-- Changed from jar to war -->
+    <packaging>war</packaging> <!-- Packaging changed to war -->
     <version>0.2.0</version>
 
     <properties>
@@ -22,13 +22,14 @@
     </dependencies>
 
     <build>
+        <finalName>jb-hello-world-maven</finalName> <!-- Set the final name without version number -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId> <!-- Added WAR plugin for packaging -->
+                <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version>
                 <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- For web.xml-less applications -->
+                    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- If there's no web.xml -->
                 </configuration>
             </plugin>
         </plugins>
