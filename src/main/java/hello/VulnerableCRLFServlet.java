@@ -1,29 +1,25 @@
 package hello;
 
-import java.nio.charset.Charset;
 
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/crlf")
 public class VulnerableCRLFServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String cookieValue = request.getParameter("cookieValue");
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // Get the user input from a query parameter without sanitization
-        String user = request.getParameter("user");
-
-        // Vulnerable: Directly using the user input in the HTTP response header
-        response.setHeader("X-User", user);
-
-        // Respond with a simple message without using the user input
-        response.getWriter().println("Hello, visitor!");
+        // Create a cookie with the 'Secure' and 'HttpOnly' flags to avoid CWE-614
+        javax.servlet.http.Cookie userCookie = new javax.servlet.http.Cookie("UserCookie", cookieValue);
+        userCookie.setSecure(true);  // Prevent CWE-614 (cookie transmitted over non-HTTPS)
+        userCookie.setHttpOnly(true);  // Adds HttpOnly flag for better security
+        
+        // Vulnerable to CWE-113: User input is directly added to the cookie value without sanitization
+        response.addCookie(userCookie);
+        response.getWriter().write("Cookie set with user input.");
     }
 }
+
+
+
