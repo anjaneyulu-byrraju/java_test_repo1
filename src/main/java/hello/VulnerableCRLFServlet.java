@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 @WebServlet("/crlf")
 public class VulnerableCRLFServlet extends HttpServlet {
@@ -21,7 +22,7 @@ public class VulnerableCRLFServlet extends HttpServlet {
         String user = request.getParameter("user");
 
         // Vulnerable: Directly using the user input in the HTTP response header
-        response.setHeader("X-User", user);
+        response.setHeader("X-User", URLEncoder.encode(user, Charset.defaultCharset()));
 
         // Respond with a simple message without using the user input
         response.getWriter().println("Hello, visitor!");
