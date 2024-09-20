@@ -74,4 +74,4 @@ jobs:
           vkey: ${{ secrets.VKEY }}
           language: java
           fixType: batch
-          files: all
+          files: changed
