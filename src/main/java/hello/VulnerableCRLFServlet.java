@@ -20,6 +20,7 @@ public class VulnerableCRLFServlet extends HttpServlet {
         cookieValue = URLEncoder.encode(cookieValue, "UTF-8");
         cookieValue = URLEncoder.encode(cookieValue, "UTF-8");
         cookieValue = URLEncoder.encode(cookieValue, "UTF-8");
+        cookieValue = URLEncoder.encode(cookieValue, "UTF-8");
         response.addCookie(userCookie);
         response.getWriter().write("Cookie set with user input.");
     }
