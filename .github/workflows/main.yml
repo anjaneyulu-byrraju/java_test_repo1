@@ -73,6 +73,7 @@ jobs:
           vid: ${{ secrets.VID }}
           vkey: ${{ secrets.VKEY }}
           language: java
+          source_base_path_1: "hello/:src/main/java/hello/"
           fixType: batch
           files: all
           prComment: true
