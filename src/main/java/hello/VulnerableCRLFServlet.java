@@ -2,6 +2,7 @@ package hello;
 
 import java.nio.charset.Charset;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +23,7 @@ public class VulnerableCRLFServlet extends HttpServlet {
         // Vulnerable: Directly using the user input in the HTTP response header
         response.setHeader("X-User", user);
 
-        // Respond with a simple message
-        response.getWriter().println("Hello, " + user);
+        // Respond with a simple message without using the user input
+        response.getWriter().println("Hello, visitor!");
     }
 }
-
