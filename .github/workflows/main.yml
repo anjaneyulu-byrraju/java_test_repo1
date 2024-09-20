@@ -75,5 +75,5 @@ jobs:
           language: java
           source_base_path_1: "hello/:src/main/java/hello/"
           fixType: single
-          files: all
+          files: changed
           prComment: true
