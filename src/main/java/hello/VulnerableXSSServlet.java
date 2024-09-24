@@ -22,5 +22,3 @@ public class VulnerableXSSServlet extends HttpServlet {
         out.println("</body></html>");
     }
 }
-
-
