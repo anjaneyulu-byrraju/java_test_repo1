@@ -75,6 +75,7 @@ jobs:
           source_base_path_1: "hello/:src/main/java/hello/"
           language: java
           DEBUG: true
+          cwe: '113'
           fixType: batch
           files: all
           createPR: true
