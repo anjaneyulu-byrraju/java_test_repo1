@@ -76,6 +76,7 @@ jobs:
           language: java
           cwe: '80,113'
           DEBUG: true
+          cwe: '113'
           fixType: batch
           files: all
           createPR: true
