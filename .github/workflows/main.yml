@@ -75,5 +75,5 @@ jobs:
           source_base_path_1: "hello/:src/main/java/hello/"
           language: java
           fixType: batch
-          files: changed
+          files: all
           createPR: true
