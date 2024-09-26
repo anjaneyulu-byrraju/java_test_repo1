@@ -19,7 +19,7 @@ public class VulnerableCRLFServlet extends HttpServlet {
         // Vulnerable to CWE-113: User input is directly added to the cookie value without sanitization
         cookieValue = URLEncoder.encode(cookieValue, "UTF-8");
         cookieValue = URLEncoder.encode(cookieValue, "UTF-8");
-        response.addCookie(userCookie);
+        response.addCookie(URLEncoder.encode(userCookie, Charset.defaultCharset()));
         response.getWriter().write("Cookie set with user input.");
     }
 }
