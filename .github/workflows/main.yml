@@ -74,6 +74,6 @@ jobs:
           vkey: ${{ secrets.VKEY }}
           source_base_path_1: "hello/:src/main/java/hello/"
           language: java
-          prComment: true
+          createPR: true
           fixType: batch
           files: all
