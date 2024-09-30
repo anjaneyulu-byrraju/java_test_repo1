@@ -67,7 +67,7 @@ jobs:
           
       - name: Create fixes from static findings
         id: convert
-        uses: veracode/veracode-fix@1.0.0
+        uses: veracode/veracode-fix@v1.0.0
         with:
           inputFile: results.json
           vid: ${{ secrets.VID }}
