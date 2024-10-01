@@ -76,5 +76,5 @@ jobs:
           language: java
           cwe: '113,80'
           fixType: batch
-          files: all
+          files: changed
           createPR: true
