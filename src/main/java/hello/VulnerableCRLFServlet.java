@@ -20,3 +20,4 @@ public class VulnerableCRLFServlet extends HttpServlet {
         response.getWriter().write("Cookie set with user input.");
     }
 }
+
