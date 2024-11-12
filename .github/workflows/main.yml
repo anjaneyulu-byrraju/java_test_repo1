@@ -73,8 +73,8 @@ jobs:
           vid: ${{ secrets.VID }}
           vkey: ${{ secrets.VKEY }}
           source_base_path_1: "hello/:src/main/java/hello/"
+          cwe: '80'
           language: java
           fixType: batch
-          files: changed
+          files: all
           createPR: true
-          
